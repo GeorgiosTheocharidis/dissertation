@@ -9,6 +9,9 @@ createdb energy;
 cd ..
 psql energy -f db_creation.sql
 psql energy -f db_create_master.sql
-
+rm /vagrant/data/*.csv
 
 sudo -u postgres bash -c "psql -c \"grant all privileges on database energy to vagrant;\""
+cd /vagrant
+sudo python3 setup.py develop
+
