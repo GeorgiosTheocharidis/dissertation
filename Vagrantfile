@@ -9,7 +9,7 @@ sudo pip3 install matplotlib
 sudo pip3 install ipython 
 sudo pip3 install pandas
 sudo apt-get install zip unzip -y
-sudo pip3 install sqlalchemy
+sudo pip3 install sqlalchemy==1.3.23
 sudo apt-get install dos2unix
 sudo apt-get install libpq-dev python-dev -y
 sudo pip3 install psycopg2

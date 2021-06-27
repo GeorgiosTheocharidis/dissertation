@@ -87,3 +87,20 @@ from load_diffs b
 where a.date_time = b.date_time;
 
 delete from master  where next_hour_load_diff is NULL;
+
+
+
+CREATE TABLE daily_data
+(
+    date_time    date,
+    load         REAL
+);
+
+insert into daily_data select date_time::date, sum(load) as load from master group by date_time::date;
+
+
+CREATE TABLE diff_per_hour
+(
+    hour    int,
+    median_diff_per_hour         REAL
+);

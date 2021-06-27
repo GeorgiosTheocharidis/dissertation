@@ -141,3 +141,14 @@ from
     master 
 group by extract(hour FROM date_time);
 """
+
+SQL_INSERT_MEDIAN_DIFF_PER_HOUR = """
+delete from diff_per_hour;
+
+insert into diff_per_hour 
+select  extract(hour from a.date_time), avg(a.next_hour_load_diff)
+from master a, ensemble_data b 
+where train=1 
+and a.date_time = b.date_time
+group by extract(hour from a.date_time);
+"""
